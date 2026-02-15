@@ -85,7 +85,10 @@ class RegForm(FlaskForm):
     )
     password2 = PasswordField(
         "Repeat Password*",
-        validators=[EqualTo("password", message="Passwords do not match"), DataRequired()],
+        validators=[
+            EqualTo("password", message="Passwords do not match"),
+            DataRequired(),
+        ],
     )
 
     recaptcha = RecaptchaField()

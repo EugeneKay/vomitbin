@@ -139,7 +139,9 @@ with app.app_context():
         )
 
     class ConfirmForm(FlaskForm):
-        confirm = SubmitField("Click here to confirm deletion", validators=[DataRequired()])
+        confirm = SubmitField(
+            "Click here to confirm deletion", validators=[DataRequired()]
+        )
 
     @app.route("/", methods=("POST", "GET"))
     @app.route("/new", methods=("POST", "GET"))

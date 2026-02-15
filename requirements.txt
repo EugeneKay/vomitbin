@@ -5,7 +5,7 @@ Flask==3.1.2
 Flask-Admin==2.0.2
 Flask-DebugToolbar==0.16.0
 Flask-Login==0.6.3
-flask-mongoengine==1.0.0
+flask-mongoengine-3==1.1.0
 Flask-WTF==1.2.2
 gunicorn==25.1.0
 itsdangerous==2.2.0

@@ -16,7 +16,7 @@ from flask_login import (
 from flask_wtf import FlaskForm
 from werkzeug.middleware.proxy_fix import ProxyFix
 from wtforms.fields import TextAreaField, SelectField, SubmitField
-from wtforms.validators import Required
+from wtforms.validators import DataRequired
 from datetime import datetime
 
 import pygments
@@ -33,7 +33,7 @@ from hashlib import sha1
 from werkzeug.routing import BaseConverter
 
 app = Flask(__name__)
-app.wsgi_app = ProxyFix(app.wsgi_app, num_proxies=1)
+app.wsgi_app = ProxyFix(app.wsgi_app, x_for=1, x_proto=1, x_host=1, x_prefix=1)
 
 
 class SHA1Converter(BaseConverter):
@@ -102,7 +102,7 @@ with app.app_context():
                 pass
 
     class PasteForm(FlaskForm):
-        text = TextAreaField("Paste Here", validators=[Required()])
+        text = TextAreaField("Paste Here", validators=[DataRequired()])
         expiration = SelectField(
             "Expiration",
             choices=[
@@ -138,7 +138,7 @@ with app.app_context():
         )
 
     class ConfirmForm(FlaskForm):
-        confirm = SubmitField("Click here to confirm deletion", validators=[Required()])
+        confirm = SubmitField("Click here to confirm deletion", validators=[DataRequired()])
 
     @app.route("/", methods=("POST", "GET"))
     @app.route("/new", methods=("POST", "GET"))

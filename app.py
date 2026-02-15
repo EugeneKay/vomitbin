@@ -168,7 +168,7 @@ with app.app_context():
 
             if current_user.is_authenticated:
                 paste.user = current_user.to_dbref()
-            elif addr := request.headers.get('Fly-Client-IP'):
+            elif addr := request.headers.get("Fly-Client-IP"):
                 paste.address = addr
             else:
                 paste.address = request.remote_addr

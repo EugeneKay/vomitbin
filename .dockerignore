@@ -1,0 +1,6 @@
+#
+# .dockerignore
+# zifnab06/zifb.in
+#
+
+*.env

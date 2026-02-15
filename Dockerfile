@@ -1,4 +1,9 @@
-FROM python:3.14
+#
+# Dockerfile
+# zifnab06/zifb.in
+#
+
+FROM python:3.14-slim
 
 WORKDIR /app
 

@@ -76,6 +76,7 @@ with app.app_context():
         "flask_debugtoolbar.panels.profiler.ProfilerDebugPanel",
         "flask_mongoengine.panels.MongoDebugPanel",
     ]
+    app.config["WTF_CSRF_ENABLED"] = False
 
     @app.template_filter("prettytime")
     def format_datetime(value, format="medium"):

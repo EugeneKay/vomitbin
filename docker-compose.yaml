@@ -1,7 +1,10 @@
-version: '3.8'
+#
+# docker-compose.yaml
+# zifnab06/zifb.in
+#
 
 services:
-  vomitbin:
+  webapp:
     build: .
     ports:
       - "8080:8080"
@@ -10,7 +13,7 @@ services:
     depends_on:
       - mongodb
     networks:
-      - vomitbin-network
+      - pastebin
 
   mongodb:
     image: mongo:latest
@@ -21,11 +24,11 @@ services:
     volumes:
       - mongodb_data:/data/db
     networks:
-      - vomitbin-network
+      - pastebin
 
 volumes:
   mongodb_data:
 
 networks:
-  vomitbin-network:
+  pastebin:
     driver: bridge
